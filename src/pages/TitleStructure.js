@@ -21,7 +21,7 @@ const TitleStructure = () => {
             {loading ? (
                 <p>Loading...</p>
             ) : structure ? (
-                <RegulationTable data={[structure]} />
+                <RegulationTable data={[structure]} issueDate={issueDate} />
             ) : (
                 <p>Error loading data</p>
             )}

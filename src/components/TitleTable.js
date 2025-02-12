@@ -10,7 +10,6 @@ const TitleTable = ({ data }) => {
                     <tr className="bg-gray-900 text-white uppercase text-sm">
                         <th className="p-3">Title</th>
                         <th className="p-3">Description</th>
-                        <th className="p-3">Latest Issue</th>
                         <th className="p-3">Last Amended</th>
                     </tr>
                 </thead>
@@ -23,8 +22,15 @@ const TitleTable = ({ data }) => {
                         >
                             <td className="p-3 font-medium text-white">Title {item.id}</td>
                             <td className="p-3 text-gray-300">{item.name}</td>
-                            <td className="p-3 text-gray-400">{item.latestIssue || "N/A"}</td>
-                            <td className="p-3 text-gray-400">{item.lastUpdated || "N/A"}</td>
+                            <td
+                                className="p-3 text-gray-400 underline cursor-pointer"
+                                onClick={(e) => {
+                                    e.stopPropagation(); // Prevents row click event
+                                    navigate(`/amendments/${item.id}`);
+                                }}
+                            >
+                                {item.lastUpdated || "N/A"}
+                            </td>
                         </tr>
                     ))}
                 </tbody>

@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Analysis from './pages/Analysis';
 import TitleStructure from './pages/TitleStructure';
+import Amendments from './pages/Amendments';
+import Search from './pages/Search';
 
 function App() {
     return (
@@ -13,7 +15,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/title/:titleId/:issueDate" element={<TitleStructure />} />
+                        <Route path="/amendments/:titleId" element={<Amendments/>} />
                         <Route path="/analysis" element={<Analysis />} />
+                        <Route path="/search" element={<Search/>} />
                     </Routes>
                 </div>
             </div>

@@ -9,6 +9,10 @@ const Navbar = () => {
                     🗺️ Explore 
                 </Link>
 
+                <Link to="/search" className="text-2xl hover:text-gray-400 transition duration-300">
+                    🔎 Search 
+                </Link>
+
                 {/* Analysis Link */}
                 <Link to="/analysis" className="text-2xl hover:text-gray-400 transition duration-300">
                     📊 Analysis

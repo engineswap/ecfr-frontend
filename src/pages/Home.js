@@ -18,15 +18,13 @@ const Home = () => {
             <div className="flex flex-col flex-grow px-6 items-center">
                 <div className="border-t border-gray-700 w-full"></div>{/* Top Divider */}
                 <h1 className="text-3xl font-bold mt-4">eCFR Explorer</h1>
-                <p className="text-lg text-gray-300">Explore and analyze federal regulations data.</p>
+                <p className="text-lg text-gray-300 mb-4">Explore and analyze federal regulations data.</p>
                 <div className="border-t border-gray-700 w-full"></div>{/* Bottom Divider */}
-
-                {/* Search bar */}
 
                 {loading ? <p className="text-center">Loading...</p> : <TitleTable data={data} />}
             </div>
 
-            {/* Bottom Bar */}
+            {/* Footer Bar */}
             <div className="h-12 bg-gray-800 w-full flex items-center justify-center">
                 <p className="text-white text-sm">© {new Date().getFullYear()} Department of Government Efficiency (DOGE)</p>
             </div>
