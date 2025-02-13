@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { fetchSection } from "../api.js";
+import { fetchSection } from "../api/api.js";
+import { parseXMLToHTML } from "../utils/utils.js";
 import Modal from "./SectionModal.js";
-import { parseXMLToHTML } from "../utils.js";
 
 const RegulationTable = ({ data, issueDate, breadcrumb = "" }) => {
     const [expanded, setExpanded] = useState({});

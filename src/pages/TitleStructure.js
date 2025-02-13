@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchTitleStructure } from "../api";
+import { fetchTitleStructure } from "../api/api.js";
 import RegulationTable from "../components/RegulationTable";
 
 const TitleStructure = () => {

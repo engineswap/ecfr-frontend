@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { fetchAmendments } from "../api";
+import { fetchAmendments } from "../api/api.js";
 import { useEffect, useState } from "react";
 import AmendmentsCard from '../components/AmendmentsCard';
 

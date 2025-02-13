@@ -1,6 +1,6 @@
-import WordsByTitle from "../components/WordsByTitle";
-import ChurnChart from "../components/ChurnChart";
-import WordCloudChart from "../components/WordCloudChart";
+import WordsByTitle from "../components/charts/WordsByTitle";
+import ChurnChart from "../components/charts/ChurnChart";
+import WordCloudChart from "../components/charts/WordCloudChart";
 
 const Analysis = () => {
     return (

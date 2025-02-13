@@ -14,7 +14,7 @@ const ChurnChart = () => {
             .then(response => response.json())
             .then(data => {
                 const aggregatedData = {};
-                
+
                 data.forEach(({ changes_per_year }) => {
                     Object.entries(changes_per_year).forEach(([year, count]) => {
                         if (parseInt(year) > 2016) { // Filter years > 2015
@@ -33,7 +33,8 @@ const ChurnChart = () => {
 
     return (
         <div className="w-3/4 mx-auto">
-            <h2 className="text-xl font-bold mb-4 text-white">Regulation Churn per Year</h2>
+            <h2 className="text-xl font-bold text-white">Regulation Churn</h2>
+            <p className="mb-4">Total number of amendments to all titles by year</p>
             <Bar
                 data={{
                     labels: churnData.labels,
@@ -41,8 +42,7 @@ const ChurnChart = () => {
                         {
                             label: "Total Changes",
                             data: churnData.values,
-                            backgroundColor: "rgba(75, 192, 192, 0.6)",
-                            borderColor: "rgba(75, 192, 192, 1)",
+                            backgroundColor: "rgba(0, 191, 255, 0.8)",
                             borderWidth: 1,
                         },
                     ],

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from './SectionModal';
-import { fetchParsedSection } from '../api';
-import { parseXMLToHTML } from "../utils";
+import { fetchParsedSection } from '../api/api.js'
+import { parseXMLToHTML } from "../utils/utils";
 
 const AmendmentsCard = ({ data }) => {
     const [modalOpen, setModalOpen] = useState(false);

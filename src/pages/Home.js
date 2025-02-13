@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import TitleTable from "../components/TitleTable";
-import { fetchTitles } from "../api";
+import { fetchTitles } from "../api/api.js";
 
 const Home = () => {
     const [data, setData] = useState([]);

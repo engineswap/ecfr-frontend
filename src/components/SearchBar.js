@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchSearchResults } from "../api.js";
+import { fetchSearchResults } from "../api/api.js";
 
 const SearchBar = ({ setResults }) => {
     const [query, setQuery] = useState("");
