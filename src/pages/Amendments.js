@@ -16,17 +16,22 @@ const Amendments = () => {
     }, [])
 
     return (
-        <div classname="">
-            <h1 className="text-3xl font-bold p-4">Title {titleId} Amendments</h1>
-            {
-                loading ? (
-                    <p>Loading...</p>
-                ) : amendmentData ? (
-                    <AmendmentsCard data={amendmentData} />
-                ) : (
-                    <p>Error loading amendment data</p>
-                )
-            }
+        <div className="flex flex-col h-full">
+            <div className="flex-grow flex flex-col">
+                <h1 className="text-3xl font-bold p-4">Title {titleId} Amendments</h1>
+                {
+                    loading ? (
+                        <p>Loading...</p>
+                    ) : amendmentData ? (
+                        <AmendmentsCard data={amendmentData} />
+                    ) : (
+                        <p>Error loading amendment data</p>
+                    )
+                }
+            </div>
+            <div className="h-12 bg-gray-800 w-full flex items-center justify-center">
+                <p className="text-white text-sm">© {new Date().getFullYear()} Department of Government Efficiency (DOGE)</p>
+            </div>
         </div>
     )
 }

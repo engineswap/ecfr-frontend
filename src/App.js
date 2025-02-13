@@ -5,6 +5,7 @@ import Analysis from './pages/Analysis';
 import TitleStructure from './pages/TitleStructure';
 import Amendments from './pages/Amendments';
 import Search from './pages/Search';
+import SearchResultPage from './pages/SearchResultPage';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                         <Route path="/title/:titleId/:issueDate" element={<TitleStructure />} />
                         <Route path="/amendments/:titleId" element={<Amendments/>} />
                         <Route path="/analysis" element={<Analysis />} />
+                        <Route path="/search_result" element={<SearchResultPage/>} />
                         <Route path="/search" element={<Search/>} />
                     </Routes>
                 </div>
