@@ -16,7 +16,12 @@ const SearchBar = ({ setResults }) => {
     // Fetch results when debouncedQuery updates
     useEffect(() => {
         if (debouncedQuery) {
-            fetchSearchResults(debouncedQuery).then(setResults);
+            fetchSearchResults(debouncedQuery).then(response => {
+                setResults(JSON.parse(response).results || []);
+            }).catch(error => {
+                console.error("Error fetching search results:", error);
+                setResults([]); // Handle errors by resetting results
+            });
         } else {
             setResults(null);
         }

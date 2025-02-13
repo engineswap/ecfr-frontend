@@ -27,17 +27,12 @@ function parseBreadcrumb(breadcrumb) {
     return parsed;
 }
 
-export const fetchSection = async (breadcrumb, issueDate) => {
-    // Parse breadcrumb into structured data
-    console.log(breadcrumb)
-    const parsed = parseBreadcrumb(breadcrumb);
-    console.log(parsed)
-
+// Helper function to construct and fetch the section data from the API
+export const fetchParsedSection = async (parsed, issueDate) => {
     if (!parsed.title || !parsed.section) {
         throw new Error("Title and Section are required to fetch data.");
     }
 
-    // Base API URL
     const baseUrl = "https://www.ecfr.gov/api/versioner/v1/full";
 
     // Construct query parameters
@@ -48,7 +43,6 @@ export const fetchSection = async (breadcrumb, issueDate) => {
     if (parsed.part) queryParams.append("part", parsed.part);
     if (parsed.subpart) queryParams.append("subpart", parsed.subpart);
     if (parsed.section) queryParams.append("section", parsed.section);
-    console.log(queryParams)
 
     // Construct full URL
     const url = `${baseUrl}/${issueDate}/title-${parsed.title}.xml?${queryParams.toString()}`;
@@ -70,8 +64,17 @@ export const fetchSection = async (breadcrumb, issueDate) => {
         console.error("Error fetching section:", error);
         throw error;
     }
-}
+};
 
+// Main function that first parses the breadcrumb and then fetches the data
+export const fetchSection = async (breadcrumb, issueDate) => {
+    console.log("Breadcrumb:", breadcrumb);
+
+    const parsed = parseBreadcrumb(breadcrumb);
+    console.log("Parsed Breadcrumb:", parsed);
+
+    return fetchParsedSection(parsed, issueDate);
+};
 export const fetchTitles = async () => {
     try {
         const response = await fetch("https://www.ecfr.gov/api/versioner/v1/titles.json");

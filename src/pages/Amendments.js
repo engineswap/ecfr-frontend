@@ -17,7 +17,7 @@ const Amendments = () => {
 
     return (
         <div classname="">
-            <h1 className="text-3xl font-bold mb-4">Amendments - Title {titleId}</h1>
+            <h1 className="text-3xl font-bold p-4">Title {titleId} Amendments</h1>
             {
                 loading ? (
                     <p>Loading...</p>
