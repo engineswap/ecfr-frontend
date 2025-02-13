@@ -4,11 +4,13 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
+const ANALYTICS_API = "https://ecfr-backend.onrender.com";
+
 const ChurnChart = () => {
     const [churnData, setChurnData] = useState({ labels: [], values: [] });
 
     useEffect(() => {
-        fetch("http://0.0.0.0:8000/regulation_churn")
+        fetch(`${ANALYTICS_API}/regulation_churn`)
             .then(response => response.json())
             .then(data => {
                 const aggregatedData = {};

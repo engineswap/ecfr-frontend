@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
+const ANALYTICS_API = "https://ecfr-backend.onrender.com";
+
 const WordsByTitle = () => {
     const [wordCounts, setWordCounts] = useState([]);
 
     useEffect(() => {
-        fetch("http://0.0.0.0:8000/words_by_title")
+        fetch(`${ANALYTICS_API}/words_by_title`)
             .then(response => response.json())
             .then(data => {
                 const sortedData = data.sort((a, b) => b.word_count - a.word_count);
