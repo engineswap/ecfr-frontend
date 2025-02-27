@@ -9,7 +9,7 @@ const AmendmentsCard = ({ data }) => {
     const [isLoading, setIsLoading] = useState(false);
     const amendmentJson = data.content_versions;
 
-    // Group amendments by date
+    // Bucket amendments by date (into a hashmap)
     const groupedByDate = amendmentJson.reduce((acc, item) => {
         acc[item.amendment_date] = acc[item.amendment_date] || [];
         acc[item.amendment_date].push(item);
@@ -25,7 +25,7 @@ const AmendmentsCard = ({ data }) => {
         }));
     };
 
-    // Fetch content when a section is clicked
+    // Fetch content when a section is clicked (for modal)
     const fetchSectionContent = async (section) => {
         setIsLoading(true);
         setModalOpen(true);

@@ -3,6 +3,21 @@ import { fetchSection } from "../api/api.js";
 import { parseXMLToHTML } from "../utils/utils.js";
 import Modal from "./SectionModal.js";
 
+/*
+    This file contains a recursively rendered regulations table. 
+
+    First we fetch the title structure.
+
+    Next we render each data item as a table row.
+
+    When user clicks a table row, we call toggleExpand, 
+    - if its a section, we display a modal and we're done.
+    - else we toggle the setExpanded state to false for a particular identifier.
+        - so an expanded state like: { section1: true, section2: false } if we call with 
+        - identifier = section2, becomes { section1: true, section2: true }
+        - The table renders each row and then conditionally shows nested content
+*/
+
 const RegulationTable = ({ data, issueDate, breadcrumb = "" }) => {
     const [expanded, setExpanded] = useState({});
     const [modalOpen, setModalOpen] = useState(false);
